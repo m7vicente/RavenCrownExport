@@ -7,13 +7,14 @@ import javax.persistence.*;
 public class RecomendacoesEntity {
 
     @Id
-    @GeneratedValue
-    int Id_recomencacoes;
-    String Nome_funcao;
-    String Quanto_tempo;
-    String Descricao;
-    String Nome_recomendacao;
-    String Telefone;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_RECOMENDACAO", unique = true, nullable = false)
+    private int Id_Recomendacao;
+    private String Nome_funcao;
+    private String Quanto_tempo;
+    private String Descricao;
+    private String Nome_recomendacao;
+    private String Telefone;
 
     @JoinColumn(referencedColumnName = "ID_USUARIO",name = "ID_USUARIO")
     @ManyToOne(cascade = CascadeType.DETACH)
@@ -28,8 +29,8 @@ public class RecomendacoesEntity {
     this.usuarioEntity = usuarioEntity;
   }
 
-  public RecomendacoesEntity(int id_recomencacoes, String nome_funcao, String quanto_tempo, String descricao, String nome_recomendacao, String telefone, UsuarioEntity usuarioEntity) {
-    Id_recomencacoes = id_recomencacoes;
+  public RecomendacoesEntity(int id_recomendacao, String nome_funcao, String quanto_tempo, String descricao, String nome_recomendacao, String telefone, UsuarioEntity usuarioEntity) {
+    Id_Recomendacao = id_recomendacao;
     Nome_funcao = nome_funcao;
     Quanto_tempo = quanto_tempo;
     Descricao = descricao;
@@ -38,12 +39,12 @@ public class RecomendacoesEntity {
     this.usuarioEntity = usuarioEntity;
   }
 
-  public int getId_recomencacoes() {
-    return Id_recomencacoes;
+  public int getId_Recomendacao() {
+    return Id_Recomendacao;
   }
 
-  public void setId_recomencacoes(int id_recomencacoes) {
-    Id_recomencacoes = id_recomencacoes;
+  public void setId_Recomendacao(int id_Recomendacao) {
+    Id_Recomendacao = id_Recomendacao;
   }
 
   public String getNome_funcao() {
