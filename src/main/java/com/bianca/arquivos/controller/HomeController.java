@@ -29,6 +29,8 @@ public class HomeController {
   public void importa(@RequestParam MultipartFile file, @RequestParam int id){
     ArrayList<String[]> lines = new ArrayList<>(); // list
 
+
+
     try {
       Scanner leitor = new Scanner(file.getInputStream());
       while (leitor.hasNext()) {
@@ -42,21 +44,27 @@ public class HomeController {
 
     ArrayList<RecomendacoesEntity> recs = new ArrayList<>(); //Objeto do banco (redomendaçoes)
 
-    lines.forEach(elem -> {
-      recs.add(new RecomendacoesEntity(
-          elem[0],
-          elem[1],
-          elem[2],
-          elem[3],
-          elem[4],
-          repository.GetUser(id)
-      ));
-    });
+  for(int i = 1; i < lines.size(); i++) {
+    recs.add(new RecomendacoesEntity(
+            lines.get(i)[0],
+            lines.get(i)[1],
+            lines.get(i)[2],
+            lines.get(i)[3],
+            lines.get(i)[4],
+            repository.GetUser(id)
+    ));
+  }
 
     repository.saveAll(recs); //salvando os vetores acima
 
 
   }
+
+  //@GetMapping()
+  //public(){
+
+
+ //}
 
   @GetMapping(produces = "text/csv")
   public List<RecomendacoesEntity> exporta(@RequestParam final int id) {

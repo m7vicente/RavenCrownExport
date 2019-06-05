@@ -20,6 +20,10 @@ public class RecomendacoesEntity {
     @ManyToOne(cascade = CascadeType.DETACH)
     UsuarioEntity usuarioEntity;
 
+  public RecomendacoesEntity() {
+
+  }
+
   public RecomendacoesEntity(String nome_funcao, String quanto_tempo, String descricao, String nome_recomendacao, String telefone, UsuarioEntity usuarioEntity) {
     Nome_funcao = nome_funcao;
     Quanto_tempo = quanto_tempo;
