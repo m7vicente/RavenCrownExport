@@ -13,7 +13,7 @@ import java.util.UUID;
 public interface RecomendacoesRepository extends JpaRepository<RecomendacoesEntity, Integer> {
 
     @Query("from RecomendacoesEntity where id_usuario = ?1")
-    List<RecomendacoesEntity> findByUsuarioId(int id);
+    List<RecomendacoesEntity> findRecomendacoesByUsuarioId(int id);
 
     @Query("from UsuarioEntity where id_usuario = ?1")
     UsuarioEntity GetUser(int id);

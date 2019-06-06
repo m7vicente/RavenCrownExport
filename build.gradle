@@ -19,4 +19,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '7.2.2.jre8'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.opencsv:opencsv:4.5'
 }

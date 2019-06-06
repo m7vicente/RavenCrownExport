@@ -33,14 +33,12 @@ public class RecomendacoesEntity {
     this.usuarioEntity = usuarioEntity;
   }
 
-  public RecomendacoesEntity(int id_recomendacao, String nome_funcao, String quanto_tempo, String descricao, String nome_recomendacao, String telefone, UsuarioEntity usuarioEntity) {
-    Id_Recomendacao = id_recomendacao;
+  public RecomendacoesEntity(String nome_funcao, String quanto_tempo, String descricao, String nome_recomendacao, String telefone) {
     Nome_funcao = nome_funcao;
     Quanto_tempo = quanto_tempo;
     Descricao = descricao;
     Nome_recomendacao = nome_recomendacao;
     Telefone = telefone;
-    this.usuarioEntity = usuarioEntity;
   }
 
   public int getId_Recomendacao() {
